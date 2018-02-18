@@ -26,11 +26,9 @@ def gender():
     gender = str(input("Are you male or female?"))
 
     if gender.lower() == 'male':
-        m = math.floor(bmrMale)
-        print("Your bmr is",m)
+        print("Your bmr is",int(bmrMale))
     elif gender.lower() == 'female':
-        f = math.floor(bmrFemale)
-        print("Your bmr is",f)
+        print("Your bmr is",int(bmrFemale))
     else:
         print("Invalid gender. Please try again.")
 
