@@ -12,11 +12,12 @@ poundsMass = poundsToNewtons(weightLb)
 poundsKilo = poundsToKilo(weightLb)
 
 def Mifflin(poundsMass,heightCm,ageInput):
-    bmr = (10 * poundsKilo + 6.25 * heightCm - 5 * ageInput) - 5
-    return bmr
+    global bmrMale,bmrFemale
+    bmrMale = (10 * poundsKilo + 6.25 * heightCm - 5 * ageInput) + 5
+    bmrFemale = (10 * poundsKilo + 6.25 * heightCm - 5 * ageInput) - 151
 
-bmr = Mifflin(poundsMass,heightCm,ageInput)
+Mifflin(poundsMass,heightCm,ageInput)
 
-print(bmr)
+print(bmrFemale)
     
     
