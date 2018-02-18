@@ -1,3 +1,5 @@
+import math
+
 def weight():
     global weightLb
     weightLb = int(input("How many pounds do you weigh?"))
@@ -24,9 +26,11 @@ def gender():
     gender = str(input("Are you male or female?"))
 
     if gender.lower() == 'male':
-        print(bmrMale)
+        m = math.floor(bmrMale)
+        print("Your bmr is",m)
     elif gender.lower() == 'female':
-        print(bmrFemale)
+        f = math.floor(bmrFemale)
+        print("Your bmr is",f)
     else:
         print("Invalid gender. Please try again.")
 
