@@ -18,6 +18,6 @@ def Mifflin(poundsMass,heightCm,ageInput):
 
 Mifflin(poundsMass,heightCm,ageInput)
 
-print(bmrFemale)
+print(bmrMale)
     
     
