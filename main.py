@@ -1,36 +1,55 @@
-import math
-
 def weight():
     global weightLb
-    weightLb = int(input("How many pounds do you weigh?"))
 
-    if type(weightLb) != int:
-        print("Invalid weight. Please try again.")
+    while True:
+        try:
+            weightLb = int(input("How many pounds do you weigh?:"))
+        except ValueError:
+            print("Please only enter positive numbers.")
+            continue
+        else:
+            break
 
 def height():
     global heightCm
-    heightCm = int(input("How tall are you in cm?"))
 
-    if type(heightCm) != int or heightCm < 0:
-        print("Invalid height. Please try again.")
+    while True:
+        try:
+            heightCm = int(input("How tall are you in cm?"))
+        except ValueError:
+            print("Please only enter positive numbers.")
+            continue
+        else:
+            break
 
 def age():
     global ageInput
-    ageInput = int(input("How many years old are you?"))
 
-    if type(ageInput) != int or ageInput < 0:
-        print("Invalid age. Please try again.")
+    while True:
+        try:
+            ageInput = int(input("How many years old are you?"))
+        except ValueError:
+            print("Please only enter positive numbers.")
+            continue
+        else:
+            break
 
 def gender():
     global gender
-    gender = str(input("Are you male or female?"))
 
-    if gender.lower() == 'male':
-        print("Your bmr is",int(bmrMale))
-    elif gender.lower() == 'female':
-        print("Your bmr is",int(bmrFemale))
-    else:
-        print("Invalid gender. Please try again.")
+    while True:
+        gender = input("Are you male or female?")
+        gender = gender.lower()
+        if gender == 'male':
+            print("Your bmr is",int(bmrMale))
+            break
+        elif gender == 'female':
+            print("Your bmr is",int(bmrFemale))
+            break
+        else:
+            print("Invalid gender. Please try again.")
+            continue
+            
 
 def poundsToNewtons(weightLb):
     poundsMass = 4.4482216152605 * weightLb
