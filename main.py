@@ -1,73 +1,61 @@
-def weight():
-    global weightLb
+def getWeight():
 
     while True:
         try:
-            weightLb = int(input("How many pounds do you weigh?:"))
-        except ValueError:
-            print("Please only enter positive numbers.")
-            continue
-        else:
-            break
+            weightLb = input("How many pounds do you weigh?:")
+            return int(weightLb)
+        except:
+            raise ValueError("Please only enter positive numbers.")
 
-def height():
-    global heightCm
+
+def getHeight():
 
     while True:
         try:
-            heightCm = int(input("How tall are you in cm?"))
-        except ValueError:
-            print("Please only enter positive numbers.")
-            continue
-        else:
-            break
+            heightCm = input("How tall are you in cm?")
+            return int(heightCm)
+        except:
+            raise ValueError("Please only enter positive numbers.")
 
-def age():
-    global ageInput
+
+def getAge():
 
     while True:
         try:
-            ageInput = int(input("How many years old are you?"))
-        except ValueError:
-            print("Please only enter positive numbers.")
-            continue
-        else:
-            break
+            ageInput = input("How many years old are you?")
+            return int(ageInput)
+        except:
+            raise ValueError("Please only enter positive numbers.")
 
-def gender():
-    global gender
 
-    while True:
-        gender = input("Are you male or female?")
-        gender = gender.lower()
-        if gender == 'male':
-            print("Your bmr is",int(bmrMale))
-            break
-        elif gender == 'female':
-            print("Your bmr is",int(bmrFemale))
-            break
-        else:
-            print("Invalid gender. Please try again.")
-            continue
-            
+def getGender():
 
-def poundsToNewtons(weightLb):
-    poundsMass = 4.4482216152605 * weightLb
-    return poundsMass
+    genderInput = input("Are you male or female?")
 
-def poundsToKilo(weightLb):
-    poundsKilo = weightLb / 2.20462
-    return poundsKilo
+    if genderInput.lower() == 'male':
+        return 'male'
+    elif genderInput.lower() == 'female':
+        return 'female'
 
-def Mifflin(poundsMass,heightCm,ageInput):
-    global bmrMale,bmrFemale
-    bmrMale = (10 * poundsKilo + 6.25 * heightCm - 5 * ageInput) + 5
-    bmrFemale = (10 * poundsKilo + 6.25 * heightCm - 5 * ageInput) - 151
-    
-weight()
-poundsMass = poundsToNewtons(weightLb)
-poundsKilo = poundsToKilo(weightLb)
-height()
-age()
-Mifflin(poundsMass,heightCm,ageInput)
-gender()
+
+def poundsToMass(weight):
+    mass = weight / 2.20462
+    return int(mass)
+
+
+def Mifflin(mass, cm, age, gender):
+    """
+    Mifflin-St Jeor Formula
+    """
+    bmrMale = (10 * mass + 6.25 * cm - 5 * age) + 5
+    bmrFemale = (10 * mass + 6.25 * cm - 5 * age) - 151
+
+    if gender == 'male':
+        return bmrMale
+    else:
+        return bmrFemale
+
+
+print("Welcome to my BMR calculator.")
+
+print(f"Your BMR is: {Mifflin(poundsToMass(getWeight()), getHeight(), getAge(), getGender())}")
