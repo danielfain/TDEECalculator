@@ -4,8 +4,8 @@ def getWeight():
         try:
             weightLb = input("How many pounds do you weigh?:")
             return int(weightLb)
-        except:
-            raise ValueError("Please only enter positive numbers.")
+        except ValueError:
+            print("Please only enter positive numbers.")
 
 
 def getHeight():
@@ -14,8 +14,8 @@ def getHeight():
         try:
             heightCm = input("How tall are you in cm?")
             return int(heightCm)
-        except:
-            raise ValueError("Please only enter positive numbers.")
+        except ValueError:
+            print("Please only enter positive numbers.")
 
 
 def getAge():
@@ -24,8 +24,8 @@ def getAge():
         try:
             ageInput = input("How many years old are you?")
             return int(ageInput)
-        except:
-            raise ValueError("Please only enter positive numbers.")
+        except ValueError:
+            print("Please only enter positive numbers.")
 
 
 def getGender():
